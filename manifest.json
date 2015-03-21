@@ -1,0 +1,32 @@
+{
+	// Required
+	"manifest_version": 2,
+	"name": "Imgur Button Swap",
+	"version": "0.1",
+	"description": "A plugin to swap the Imgur vote icons with higher visibility icons.",
+	"icons": {
+		"16": "icon16.png",
+		"48": "icon48.png",
+		"128": "icon128.png"
+	},
+	"browser_action": {
+		"default_icon": "icon.png"
+	},
+	"author": "Joseph Catrambone",
+	"background": {
+		"persistent": false,
+		"scripts": ["swap.js"]
+	},
+	"content_scripts": [{
+		"matches": [
+			"http://*.imgur.com/*",
+			"https://*.imgur.com/*"
+		],
+		"js": ["swap.js"],
+		"css": ["style.css"],
+		"run_at": "document_end"
+		}
+	],
+	"homepage_url": "http://josephcatrambone.com",
+	"permissions": ["tabs", "http://*.imgur.com/", "https://*.imgur.com/"]
+}
